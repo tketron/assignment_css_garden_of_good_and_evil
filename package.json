@@ -1,0 +1,24 @@
+{
+  "name": "assignment_css_garden_of_good_and_evil",
+  "version": "1.0.0",
+  "description": "Create a CSS garden that adapts to your whims.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tketron/assignment_css_garden_of_good_and_evil.git"
+  },
+  "author": "Tyler Ketron",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tketron/assignment_css_garden_of_good_and_evil/issues"
+  },
+  "homepage": "https://github.com/tketron/assignment_css_garden_of_good_and_evil#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0"
+  }
+}
