@@ -1,5 +1,7 @@
 const express = require('express');
 const expressHandlebars = require('express-handlebars');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 
 const app = express();
 
@@ -11,9 +13,22 @@ app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 app.use(express.static(__dirname + "/public"));
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true}));
+
 
 app.get('/', (req, res) => {
-  res.render('index');
+  const color = req.cookies.color;
+  res.render('index', { color });
+});
+
+
+app.post('/', (req, res) => {
+  //read form
+  const newColor = req.body.color;
+  res.cookie("color", newColor);
+
+  res.redirect('back');
 });
 
 app.listen(3000, () => {

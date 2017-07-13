@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/tketron/assignment_css_garden_of_good_and_evil#readme",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.15.3",
     "express-handlebars": "^3.0.0"
