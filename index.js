@@ -6,7 +6,23 @@ const bodyParser = require('body-parser');
 const app = express();
 
 const hbs = expressHandlebars.create({
-  defaultLayout: "main"
+  defaultLayout: "main",
+  helpers: {
+    setSelected: function(value, currentValue) {
+      if (value == currentValue) {
+        return "selected";
+      } else {
+        return "";
+      }
+    },
+    setChecked: function(value, currentValue) {
+      if (value == currentValue) {
+        return "checked";
+      } else {
+        return "";
+      }
+    }
+  }
 });
 
 app.engine("handlebars", hbs.engine);
@@ -16,17 +32,22 @@ app.use(express.static(__dirname + "/public"));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true}));
 
-
 app.get('/', (req, res) => {
-  const color = req.cookies.color;
-  res.render('index', { color });
+  const favColor = req.cookies.color;
+  const style = req.cookies.style;
+  const food = req.cookies.food;
+  res.render('index', { favColor, style, food });
 });
 
-
 app.post('/', (req, res) => {
-  //read form
   const newColor = req.body.color;
   res.cookie("color", newColor);
+
+  const newStyle = req.body.style;
+  res.cookie("style", newStyle);
+
+  const favFood = req.body.food;
+  res.cookie("food", favFood);
 
   res.redirect('back');
 });

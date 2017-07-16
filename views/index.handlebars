@@ -1,21 +1,41 @@
-<div class="{{{color}}}">
+<div class="{{{favColor}}}">
 <h1>CSS Garden of Good and Evil</h1>
+<h2>{{{style}}}</h2>
 
 <div>
-  Favorite color: {{{color}}}
+  Favorite color: {{{favColor}}}
+</div>
+
+<div>
+  Favorite food: {{{food}}}
 </div>
 
 <div>
   <form action="/" method="post">
 
+    <div>
+      <label>Good: </label>
+      <input type="radio" name="style" value="good" {{setChecked "good" style}}>
+
+      <label>Evil: </label>
+      <input type="radio" name="style" value="evil" {{setChecked "evil" style}}>
+    </div>
+
+    <div>
+      <label>Favorite Food: </label>
+      <input type="text" name="food">
+    </div>
+
+    <div>
     <label>Favorite Color: </label>
 
     <select name="color">
-      <option value="blue">Blue</option>
-      <option value="red">Red</option>
-      <option value="green">Green</option>
-      <option value="purple">Purple</option>
+      <option value="blue" {{setSelected "blue" favColor }}>Blue</option>
+      <option value="red" {{setSelected "red" favColor }}>Red</option>
+      <option value="green" {{setSelected "green" favColor}}>Green</option>
+      <option value="purple" {{setSelected "purple" favColor }}>Purple</option>
     </select>
+  </div>
 
     <input type="submit" method="post">
   </form>
